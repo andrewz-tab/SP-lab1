@@ -9,18 +9,18 @@ do
 cond=0
 codeExit=0
 
-while [ "$cond" -ne 1 ];
+while [ "$cond" != "1" ];
 do
 echo "Выберете действие:" 1>&2
 echo "1 - Разархивировать"
 echo "2 - Заархивировать"
 echo "3 - Завершить работу"
 read action
-	if [[ ("$action" -eq 1) || ("$action" -eq 2) ]];
+	if [[ ("$action" == "1") || ("$action" == "2") ]];
 	then
 		cond=1
 		codeExit=0
-	elif [[ ("$action" -eq 3) ]];
+	elif [[ ("$action" == "3") ]];
 	then
 		cond=1
 		exit $codeExit
@@ -29,9 +29,9 @@ read action
 		codeExit=1
 	fi
 done
-if [[ "$action" -eq 1 ]]; then 
+if [[ "$action" == "1" ]]; then 
  cond=0
- while [ "$cond" -ne 1 ];
+ while [ "$cond" != "1" ];
  do
 	read -p "Введите название архива ввиде \"*.tar\": " archive
 	if [[ "$archive" != *.tar ]]; then
@@ -50,7 +50,7 @@ if [[ "$action" -eq 1 ]]; then
  done
 else
  cond=0
- while [ "$cond" -ne 1 ];
+ while [ "$cond" != "1" ];
  do
 	read -p "Введите название каталога: " folder
 	read -p "Введите название архива: " archive
